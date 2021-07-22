@@ -1,0 +1,64 @@
+{% extends "tienda/base.html" %} // debe ser la primera etiqueta en el archivo
+
+{% block title%} Inicio {% endblock %} 
+{% block content%}
+
+<button><a class="button" href="{% url 'buscarComputadora' %}">Regresar</a></button>
+<h1>Resutados de la busqueda</h1>
+
+{% if IDComputadora %}
+<!-- <strong>ID del modelo: </strong>{{IDComputadora}} -->
+<br>
+{% endif %}
+
+
+    <p>
+        cantidad de modelos: {{modelos | length}}
+    </p>
+
+    <table>
+        <tr>
+            <th> <a href="{% url 'crearProducto' %}">Agregar</a></th>
+            <th>Descripcion</th>
+            <th>Marca</th>
+            <th>procesador</th>
+            <th>retroiluminado</th>
+            <th>color</th>
+            <th>material</th>
+            <th>Huella</th>
+        </tr>
+        {% if modelos %}
+        {% for modelo in modelos %}
+        <tr>
+            <td> <a href="{% url 'editarProducto' %}">Editar</a> <a href="{% url 'eliminarProducto' %}">Eliminar</a> </td>
+            <td style="color: yellowgreen;">{{modelo.descripcion}}</td>
+            <td> {{ modelo.marca }} </td>
+            <td> {{ modelo.procesador }} </td>
+            <td> {{ modelo.retroiluminado }} </td>
+            <td> {{ modelo.color }} </td>
+            <td> {{ modelo.material }} </td>
+            <td> {{ modelo.lectorDeHuella }} </td>
+        </tr>
+        {% endfor %}
+        
+        {% else %}
+        <tr>
+            <td style="color: red;" >No se encontraron registros</td>
+        </tr>
+        {% endif %}
+    </table>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        table {
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+        
+    </style>
+{% endblock %}
+
+
+

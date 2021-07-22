@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+<meta http-equiv="refresh" content="30" charset="UTF-8">
+</head>
+    <body>
+        {% include "menu.html" %} <!-- se incluye la plantilla del menu o barra de navegacion-->
+        <div id="bodi">    
+            {% block content %}
+            {% endblock %} <!-- aqui se van a incluir las plantillas hijas, 
+                importante colocar  'extends "base.html" '
+                en la primera linea de la plantilla hija,
+            y colocar dentro de 'block content' el codigo html de la plantilla hija -->
+            
+<br><br>
+        </div>
+        <footer>
+            <p> Gracias por visitar esta pagina. Esto es uun pie de pagina. </p>
+        </footer>
+    </body>
+<style>
+    body {
+        margin: 0px 0px;
+        padding: 0px 0px;
+        color: white;
+        background-color: black;
+        font-size: larger;
+    }
+    #bodi{
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .fondo {
+        color: black;
+        font-weight: bold;
+    }
+    #cuadroCodigo{
+        padding: 10px 10px;
+        background-color: lemonchiffon;
+    }
+</style>
+</html>

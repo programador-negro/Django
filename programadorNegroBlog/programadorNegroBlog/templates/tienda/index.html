@@ -1,0 +1,67 @@
+{% extends "tienda/base.html" %} // debe ser la primera etiqueta en el archivo
+
+{% block title%} Inicio {% endblock %} 
+{% block content%}
+
+<p>Hola Mundo</p>
+<div class="container">
+    <div class="card">
+        <img src="https://cnet2.cbsistatic.com/img/v1uck8jqHRl3HB75ilnFSos5Ag0=/940x528/2020/01/28/18f5e9e8-7158-4dfb-acf2-a5ec8b78ff1b/02-acer-nitro-5-an517-51-56yw.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+        <h4><b>John Doe</b></h4> 
+        <p>Architect & Engineer</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://cnet2.cbsistatic.com/img/v1uck8jqHRl3HB75ilnFSos5Ag0=/940x528/2020/01/28/18f5e9e8-7158-4dfb-acf2-a5ec8b78ff1b/02-acer-nitro-5-an517-51-56yw.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+        <h4><b>John Doe</b></h4> 
+        <p>Architect & Engineer</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://cnet2.cbsistatic.com/img/v1uck8jqHRl3HB75ilnFSos5Ag0=/940x528/2020/01/28/18f5e9e8-7158-4dfb-acf2-a5ec8b78ff1b/02-acer-nitro-5-an517-51-56yw.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+        <h4><b>John Doe</b></h4> 
+        <p>Architect & Engineer</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://cnet2.cbsistatic.com/img/v1uck8jqHRl3HB75ilnFSos5Ag0=/940x528/2020/01/28/18f5e9e8-7158-4dfb-acf2-a5ec8b78ff1b/02-acer-nitro-5-an517-51-56yw.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+        <h4><b>John Doe</b></h4> 
+        <p>Architect & Engineer</p>
+        </div>
+    </div>
+</div>
+
+
+  <style>
+      .container .card{
+          display: inline-block;
+          
+      }
+      .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 30%;
+  margin: 1%;
+  background-color: darkslategrey ;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+.container h4 b{
+  color: white;
+}
+.container p{
+  color: white;
+}
+  </style>
+
+{% endblock %}

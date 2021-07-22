@@ -1,0 +1,57 @@
+{% extends "tienda/base.html" %} // debe ser la primera etiqueta en el archivo
+
+{% block title%} Inicio {% endblock %} 
+{% block content%}
+<form action="/resultadocomputadora/" method="GET">
+    <label for="">Modelo</label>
+
+    <select name="modelos_buscar" >
+        <option value="null" > - </option>
+        {% for modelo in modelos %}
+            <option value= {{ modelo.id }} > 
+                {{ modelo.descripcion }} 
+            </option>
+        {% endfor %}
+    </select>
+    <label for="">RAM</label>
+        <select name="rams_buscar">
+            <option value="null" > - </option>
+            {% for ram in rams %}
+            <option value= {{ram.id}} > {{ram.descripcion}} </option>
+            {% endfor %}
+        </select>
+
+    <label for="">Disco</label>
+        <select name="discos_buscar">
+            <option value="null" > - </option>
+            {% for disco in discos %}
+            <option value=  {{disco.id}} > {{disco.descripcion}}  </option>
+            {% endfor %}
+        </select>
+
+    <label for="">Marca</label>
+        <select name="marcas_buscar">
+            <option value="null" > - </option>
+            {% for marca in marcas %}
+            <option value= {{marca.id}} > {{marca.descripcion}} </option>
+            {% endfor %}
+        </select>
+
+    <label for="">Procesador</label>
+    <select name="procesadores_buscar">
+        <option value="null" > - </option>
+        {% for procesador in procesadores %}
+        <option value={{procesador.id}}>
+            {{procesador.descripcion}}
+        </option>
+        {% endfor %}
+    </select>
+    <br><br>
+    
+    <input  type="submit" value="Buscar">
+</form>
+
+<!-- <iframe src="tienda/resultadoProductoTienda.html" frameborder="0" width="100%" height="100%" >
+
+</iframe> -->
+{% endblock %}

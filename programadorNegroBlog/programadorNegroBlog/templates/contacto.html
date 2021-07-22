@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %} Contacto {% endblock %}
+
+{%block content%}
+
+<h1>Redacta aqui tu mensaje</h1>
+
+<form action="/contactame/" method="POST">{% csrf_token %}
+    correo: <br>
+    <input type="text" name="correo" >
+
+    Asunto: <br>
+    <input type="text" name="asunto" >
+
+    Mensaje: <br>
+    <textarea name="mensaje" cols="30" rows="15"></textarea><br>
+
+    <input type="submit" name="" id="" value="Enviar">
+</form>
+
+{%endblock%}

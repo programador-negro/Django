@@ -1,0 +1,88 @@
+
+{% extends "tienda/base.html" %} // debe ser la primera etiqueta en el archivo
+
+{% block title%} Inicio {% endblock %} 
+{% block content %}
+
+<form action="/crearProducto/" method="POST" > {% csrf_token %}
+    <label for="">
+        Descripcion
+    </label>
+    <input name="descripcion" type="text" value="">
+
+    <label for=""> <br>
+        Marca
+    </label>
+    <select name="marca" id="">
+        {% for marca in marcas %}
+        <option value={{marca.id}}>
+            {{marca.descripcion}}
+        </option>
+        {%endfor%}
+    </select>
+
+    <label for=""><br>
+        Ram
+    </label>
+    <select name="ram" id="">
+        {% for ram in rams %}
+        <option value= {{ram.id}} >
+            {{ram.descripcion}}
+        </option>
+        {% endfor %}
+    </select>
+
+    <label for=""><br>
+        Retroiluminado
+    </label>
+    <input name="retroiluminado" type="checkbox">
+
+    <label for=""><br>
+        Color
+    </label>
+    <input name="color" type="text">
+
+    <label for=""><br>
+        Lector de huella
+    </label>
+    <input name="huella" type="checkbox">
+
+    <label for=""><br>
+        Procesador
+    </label>
+    <select name="procesador" id="">
+        {% for procesador in procesadores %}
+        <option value= {{procesador.id}} >
+            {{ procesador.descripcion }}
+        </option>
+        {% endfor %}
+    </select>
+        
+    <label for=""><br>
+        Duracion de Bateria en Dias
+    </label>
+    <input name="bateria" type="number">
+
+    <label for=""><br>
+        Material
+    </label>
+    <input name="material" type="text">
+    
+    <label for=""><br>
+        Disco
+    </label>
+    <select name="disco" id="">
+        {% for disco in discos %}
+        <option value= {{disco.id}} >
+            {{ disco.descripcion }}
+        </option>
+        {% endfor %}
+    </select> <br>
+    <input type="submit" value="Guardar">
+</form>
+
+{% if data %}
+    <h1> {{data}} </h1>
+{% endif %}
+
+{%  endblock %}
