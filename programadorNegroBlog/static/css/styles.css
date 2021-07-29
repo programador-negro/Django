@@ -1,0 +1,67 @@
+body {
+    margin: 0px 0px;
+    padding: 0px 0px;
+    color: white;
+    background-color: black;
+    font-size: larger;
+    font-family: Courier;
+}
+
+#bodi
+{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.fondo 
+{
+    color: black;
+    font-weight: bold;
+}
+
+#cuadroCodigo
+{
+    padding: 10px 10px;
+    background-color: lemonchiffon;
+}
+
+.bk_all 
+{
+    background-color: black;
+    color: white;
+}
+
+#correo_input 
+{
+    margin: 20px 20px;
+    width: 5cm;
+    height: 1.2cm;
+    border-radius: 10rem 0rem 10rem 0rem;
+    padding: 2% 2%;
+}
+
+#asunto_input {
+    margin: 20px 20px;
+    width: 5cm;
+    height: 1.2cm;
+    border-radius: 10rem 0rem 10rem 0rem;
+    padding: 2% 2%;
+    
+}
+
+#mensaje_input {
+    margin: 20px 20px;
+    border-radius: 1rem 5rem 1rem 5rem;
+    padding: 0.5rem 4rem;
+}
+
+.btn-primary {
+    background-color: lightseagreen;
+    border: 2px solid lightskyblue;
+    border-radius: 5rem;
+    width: 3cm;
+    color: white;
+    align-self: right;
+    border-radius: 5rem 0rem 5rem 5rem;
+    margin-left: 67%;
+}

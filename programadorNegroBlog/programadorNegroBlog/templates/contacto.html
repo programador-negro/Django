@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block title %} Contacto {% endblock %}
 
 {%block content%}
@@ -6,16 +7,27 @@
 <h1>Redacta aqui tu mensaje</h1>
 
 <form action="/contactame/" method="POST">{% csrf_token %}
-    correo: <br>
-    <input type="text" name="correo" >
+        <label for="correo_input">
+            correo
+        </label>
+        <br>
+            <input id="correo_input" class="bk_all" type="text" name="correo" >
+        <br>
 
-    Asunto: <br>
-    <input type="text" name="asunto" >
+        <label for="asunto_input">
+            Asunto
+        </label>
+        <br>
+            <input id="asunto_input" class="bk_all" type="text" name="asunto" >
+        <br>
 
-    Mensaje: <br>
-    <textarea name="mensaje" cols="30" rows="15"></textarea><br>
+        <label for="mensaje_input">
+            Mensaje
+        </label>
+        <br>
+            <textarea id="mensaje_input" class="bk_all" name="mensaje" cols="80" rows="7"></textarea><br>
 
-    <input type="submit" name="" id="" value="Enviar">
+    <input class="btn-primary" type="submit" name="" id="" value="Enviar">
 </form>
 
 {%endblock%}
