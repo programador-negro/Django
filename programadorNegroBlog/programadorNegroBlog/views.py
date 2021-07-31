@@ -5,35 +5,37 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
 @csrf_exempt
 def index(request):
-	return render(request, "ProgNegroBlog/index.html")
+	userSession = request.session['user']
+	return render(request, "ProgNegroBlog/index.html", {'userSession':userSession})
 	#                |              |
 	#           peticion      		vista
 
 	# pagina de tutoriales python
 def pythonPagina(request):
-	return render(request, "python_page.html")
+	userSession = request.session['user']
+	return render(request, "ProgNegroBlog/python_page.html", {'userSession':userSession})
 
 	#pagina de tutoriales javascript
 def javascriptPagina(request):
 	
-	return render(request, "javascript_page.html")
+	return render(request, "ProgNegroBlog/javascript_page.html")
 
 	# pagina de tutoriales generales
 def tutorialesPagina(request):
-	return render(request, "tutoriales_page.html")
+	return render(request, "ProgNegroBlog/tutoriales_page.html")
 
 	# pagina de capitulos de alguna serie
 def capitulosPagina(request):
-	return render(request, "capitulos_page.html")
+	return render(request, "ProgNegroBlog/capitulos_page.html")
 
 #--- creacion de FORMULARIOS -------------
 
 
 def contacto(request):
 	if request.method == 'POST':
-		return render(request, "graciasContacto.html")
+		return render(request, "ProgNegroBlog/graciasContacto.html")
 
-	return render(request, "contacto.html")
+	return render(request, "ProgNegroBlog/contacto.html")
 
 # Paso de argumentos por URL
 import json
