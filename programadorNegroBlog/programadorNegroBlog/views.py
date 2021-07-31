@@ -1,9 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse, response
-from listaProductos.models import producto
+from django.http import HttpResponse, request, response
+from django.contrib.auth import authenticate, login
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
+@csrf_exempt
 def index(request):
-	return render(request, "index.html")
+	return render(request, "ProgNegroBlog/index.html")
 	#                |              |
 	#           peticion      		vista
 
@@ -26,21 +28,6 @@ def capitulosPagina(request):
 
 #--- creacion de FORMULARIOS -------------
 
-def busqueda_productos(request):
-	queryNombre = producto.objects.raw('SELECT id, titulo FROM listaproductos_producto') # raw() - permite ejecutar comandos SQL explicitamente
-	
-	
-	return render(request, "formularioUno.html",{"queryNombre":queryNombre})
-
-def busqueda_productos_get(request):
-	if request.GET['prod']: # Valida si la peticion se realizo
-		#mensaje = f"Producto a buscar {request.GET['ProdNombre']}"
-		elemento = request.GET['prod'] # optiene el ID del elemento seleccionado
-		articulos = producto.objects.filter(id__icontains=elemento)
-		return render(request, "resultadoFormularioUno.html",{"articulos":articulos,"elemento":elemento})
-	else:
-		mensaje = "No se inserto algo para buscar"
-	return HttpResponse(mensaje)
 
 def contacto(request):
 	if request.method == 'POST':
@@ -109,4 +96,28 @@ def data(request):
 			</p>
 			'''.format(**dato))
 	return HttpResponse('<br>'.join(contenido))
-#----- formularios con API-FORMS
+
+
+
+@csrf_exempt
+def loginView(request):
+	
+	#if request.POST:
+	if request.method == 'POST':
+		
+		username = request.POST.get('user')
+		password = request.POST.get('pass')
+		
+		print("USERNAME:"+str(username))
+
+		user = authenticate(request, username=username, password=password)
+
+		if user is not None:
+			login(request, user)
+			request.session['user'] = username
+			return render(request, "ProgNegroBlog/index.html", {'userSession':request.session['user']})
+		
+		else:
+			errorMessageLogin = "user or password incorrect"
+			return render(request, "ProgNegroBlog/login.html",{'errorLogin':errorMessageLogin})
+	return render(request, "ProgNegroBlog/login.html")

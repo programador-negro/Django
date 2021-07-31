@@ -1,0 +1,94 @@
+body {
+    margin: 15% 15%;
+    color: white;
+    font-family: Helvetica;
+    font-size: 1.5pc;
+
+}
+#login-container {
+    background-color: black;
+    width: 10cm;
+    margin-left: 30%;
+    padding: 0.5cm;
+    border-radius: 20px 20px;
+    text-align: center;
+    
+}
+
+
+td
+{
+    padding: 0.2cm 0.2cm;
+    
+}
+
+#btn-text {
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    padding: 0.2cm;
+    border-radius: 3rem;
+    width: 179%;
+    margin-left: 25%;
+    
+    animation-name: loginBars;
+    animation-duration: 2s;
+}
+
+@keyframes loginBars {
+    from {
+        width: 10%;
+    }
+    to {
+        width: 179%;
+    }
+}
+
+#btn-text:hover {
+    border: 1px solid yellowgreen;
+    box-shadow: 0.1cm 0.1cm yellowgreen;
+    color: yellowgreen;
+    width: 180%;
+    height: 0.6cm;
+    border-radius: 3rem;
+    
+}
+#btn-submit 
+{
+    color: white;
+    background-color: red;
+    border: 2px solid red;
+    padding: 0.2cm;
+    border-radius: 3rem;
+    width: 3cm;
+    margin-left: 25%;
+    margin-right: 20%;
+    
+}
+
+#btn-submit:hover
+{
+    color: white;
+    background-color: red;
+    border: 2px solid white;
+    font: bold;
+}
+#spam-login{
+    text-align: center;
+    font-size: 0.5cm;
+    color: tomato;
+    margin-top: 1cm;
+    
+    animation-name: spam-log-in;
+    animation-duration: 2s;
+}
+
+@keyframes spam-log-in {
+    from {
+        font-size: 0.1cm;
+        
+    }
+    to {
+        font-size: 0.5cm;
+    }
+}
