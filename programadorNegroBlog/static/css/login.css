@@ -3,33 +3,74 @@ body {
     color: white;
     font-family: Helvetica;
     font-size: 1.5pc;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1 {
+    margin: auto;
+    padding-bottom: 1cm;  
+    animation-name: h1-animation;
+    animation-duration: 5s;
+}
+@keyframes h1-animation{
+    from {
+        color: dark;
+        /* font-size: 5px; */
+    }
+    to {
+        color: white;
+        /* font-size: 48px; */
+    }
 
 }
 #login-container {
     background-color: black;
-    width: 10cm;
-    margin-left: 30%;
-    padding: 0.5cm;
-    border-radius: 20px 20px;
+    width: 15cm;
+    padding: 1.5cm;
+    
+
     text-align: center;
     
 }
-
-
-td
-{
-    padding: 0.2cm 0.2cm;
-    
+.table-login {
+    background-color:black;
+    margin: auto; /* centra automaticamente los elementos */
+    padding: 1cm;
+    border-radius: 20px 20px;
 }
 
+.td-input
+{
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-top: 0.3cm;
+    padding-bottom: 0.1cm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.td-submit
+{
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-top: 0.3cm;
+    padding-bottom: 0.1cm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #btn-text {
     color: white;
     background-color: black;
     border: 1px solid white;
     padding: 0.2cm;
     border-radius: 3rem;
-    width: 179%;
-    margin-left: 25%;
+    width: 100%;
+    margin: auto; /* centra automaticamente los elementos */
+    text-align: center;
     
     animation-name: loginBars;
     animation-duration: 2s;
@@ -37,16 +78,17 @@ td
 
 @keyframes loginBars {
     from {
-        width: 10%;
+        width: 0%;
     }
     to {
-        width: 179%;
+        width: 100%;
     }
 }
 
 #btn-text:hover {
-    border: 1px solid burlywood;
-    box-shadow: 0.1cm 0.1cm burlywood;
+    border-bottom: 3px solid tomato;
+    
+    
     color: burlywood;
     width: 180%;
     height: 0.6cm;
@@ -61,9 +103,8 @@ td
     padding: 0.2cm;
     border-radius: 3rem;
     width: 3cm;
-    margin-left: 25%;
-    margin-right: 20%;
-    
+    text-align: center;
+
 }
 
 #btn-submit:hover
