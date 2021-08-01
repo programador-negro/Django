@@ -2,40 +2,58 @@ from django.shortcuts import render
 from django.http import HttpResponse, request, response
 from django.contrib.auth import authenticate, login
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
-
+from .settings import USER_SESSIONS
 @csrf_exempt
 def index(request):
+
+	# este script cuenta el numero de veces que 
+	# un usuario entra o visita una vista en especifico.
+	num_visits = request.session.get('num_visits', 0)
+	request.session['num_visits'] = num_visits + 1
+
+
+	# recibe el nombre de usuario logueado en la aplicacion
 	userSession = request.session['user']
-	return render(request, "ProgNegroBlog/index.html", {'userSession':userSession})
+
+	num_sessions_app = USER_SESSIONS
+	
+	if userSession not in USER_SESSIONS: #si el usuario logueado actual no esta en la session
+		USER_SESSIONS.append(userSession)
+	print('USER-SESSIONS'+str(USER_SESSIONS))
+	
+	return render(request, "ProgNegroBlog/indexView.html", {'userSession':userSession,'numVisits':num_visits,'numVisitsApp':len(num_sessions_app),'usersLogged':USER_SESSIONS})
 	#                |              |
 	#           peticion      		vista
 
 	# pagina de tutoriales python
 def pythonPagina(request):
 	userSession = request.session['user']
-	return render(request, "ProgNegroBlog/python_page.html", {'userSession':userSession})
+	return render(request, "ProgNegroBlog/pythonView.html", {'userSession':userSession})
 
 	#pagina de tutoriales javascript
 def javascriptPagina(request):
-	
-	return render(request, "ProgNegroBlog/javascript_page.html")
+	userSession = request.session['user']
+	return render(request, "ProgNegroBlog/javascriptView.html",{'userSession':userSession})
 
 	# pagina de tutoriales generales
 def tutorialesPagina(request):
-	return render(request, "ProgNegroBlog/tutoriales_page.html")
+	userSession = request.session['user']
+	return render(request, "ProgNegroBlog/tutorialesView.html",{'userSession':userSession})
 
 	# pagina de capitulos de alguna serie
 def capitulosPagina(request):
-	return render(request, "ProgNegroBlog/capitulos_page.html")
+	userSession = request.session['user']
+	return render(request, "ProgNegroBlog/capitulosView.html",{'userSession':userSession})
 
 #--- creacion de FORMULARIOS -------------
 
 
 def contacto(request):
+	userSession = request.session['user']
 	if request.method == 'POST':
-		return render(request, "ProgNegroBlog/graciasContacto.html")
+		return render(request, "ProgNegroBlog/graciasContactoView.html")
 
-	return render(request, "ProgNegroBlog/contacto.html")
+	return render(request, "ProgNegroBlog/contactoView.html",{'userSession':userSession})
 
 # Paso de argumentos por URL
 import json
@@ -104,6 +122,8 @@ def data(request):
 @csrf_exempt
 def loginView(request):
 	
+
+
 	#if request.POST:
 	if request.method == 'POST':
 		
@@ -117,9 +137,9 @@ def loginView(request):
 		if user is not None:
 			login(request, user)
 			request.session['user'] = username
-			return render(request, "ProgNegroBlog/index.html", {'userSession':request.session['user']})
+			return render(request, "ProgNegroBlog/indexView.html", {'userSession':request.session['user']})
 		
 		else:
 			errorMessageLogin = "user or password incorrect"
-			return render(request, "ProgNegroBlog/login.html",{'errorLogin':errorMessageLogin})
-	return render(request, "ProgNegroBlog/login.html")
+			return render(request, "ProgNegroBlog/loginView.html",{'errorLogin':errorMessageLogin})
+	return render(request, "ProgNegroBlog/loginView.html")

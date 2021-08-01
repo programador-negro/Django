@@ -45,9 +45,9 @@ td
 }
 
 #btn-text:hover {
-    border: 1px solid yellowgreen;
-    box-shadow: 0.1cm 0.1cm yellowgreen;
-    color: yellowgreen;
+    border: 1px solid burlywood;
+    box-shadow: 0.1cm 0.1cm burlywood;
+    color: burlywood;
     width: 180%;
     height: 0.6cm;
     border-radius: 3rem;

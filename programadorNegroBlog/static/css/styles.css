@@ -65,3 +65,24 @@ body {
     border-radius: 5rem 0rem 5rem 5rem;
     margin-left: 67%;
 }
+
+.numUserSessionsPage {
+
+    border: 2px solid darkred;
+    padding: 0.1cm 0.3cm;
+    border-radius: 5rem 5rem 5rem 5rem;
+    background-color: tomato;
+    margin: 0.5pc 0.5pc;
+    font-weight: bold;
+    color: darkred;
+}
+
+.numUserSessionsApp{
+    border: 2px solid darkred;
+    padding: 0.1cm 0.3cm;
+    border-radius: 5rem 5rem 5rem 5rem;
+    background-color: tomato;
+    margin: 0.5pc 0.5pc;
+    font-weight: bold;
+    color: darkred;
+}
