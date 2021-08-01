@@ -15,8 +15,6 @@ def index(request):
 	# recibe el nombre de usuario logueado en la aplicacion
 	userSession = request.session['user']
 
-	print('USER-SESSIONS'+str(USER_SESSIONS))
-	
 	return render(request, "ProgNegroBlog/indexView.html", {'userSession':userSession,'numVisits':num_visits,'numVisitsApp':len(USER_SESSIONS),'usersLogged':USER_SESSIONS})
 	#                |              |
 	#           peticion      		vista
