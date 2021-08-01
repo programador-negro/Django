@@ -15,13 +15,9 @@ def index(request):
 	# recibe el nombre de usuario logueado en la aplicacion
 	userSession = request.session['user']
 
-	num_sessions_app = USER_SESSIONS
-	
-	if userSession not in USER_SESSIONS: #si el usuario logueado actual no esta en la session
-		USER_SESSIONS.append(userSession)
 	print('USER-SESSIONS'+str(USER_SESSIONS))
 	
-	return render(request, "ProgNegroBlog/indexView.html", {'userSession':userSession,'numVisits':num_visits,'numVisitsApp':len(num_sessions_app),'usersLogged':USER_SESSIONS})
+	return render(request, "ProgNegroBlog/indexView.html", {'userSession':userSession,'numVisits':num_visits,'numVisitsApp':len(USER_SESSIONS),'usersLogged':USER_SESSIONS})
 	#                |              |
 	#           peticion      		vista
 
@@ -137,7 +133,10 @@ def loginView(request):
 		if user is not None:
 			login(request, user)
 			request.session['user'] = username
-			return render(request, "ProgNegroBlog/indexView.html", {'userSession':request.session['user']})
+			
+			if username not in USER_SESSIONS: #si el usuario logueado actual no esta en la session
+				USER_SESSIONS.append(username)
+			return render(request, "ProgNegroBlog/indexView.html", {'userSession':request.session['user'],'numVisitsApp':len(USER_SESSIONS)})
 		
 		else:
 			errorMessageLogin = "user or password incorrect"
